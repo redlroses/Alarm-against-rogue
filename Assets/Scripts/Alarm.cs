@@ -1,6 +1,5 @@
 using UnityEngine;
 using DG.Tweening;
-using UnityEngine.Events;
 
 [RequireComponent(typeof(AudioSource))]
 public class Alarm : MonoBehaviour
