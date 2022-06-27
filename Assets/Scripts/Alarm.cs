@@ -9,11 +9,6 @@ public class Alarm : MonoBehaviour
     private AudioSource _audioSource;
     private Sequence _sequence;
 
-    private void Start()
-    {
-        _audioSource = GetComponent<AudioSource>();
-    }
-
     public void SetActiveAlarm(bool isActive)
     {
         if (isActive)
@@ -28,5 +23,10 @@ public class Alarm : MonoBehaviour
                 .Append(_audioSource.DOFade(0, _alarmRiseTime))
                 .AppendCallback(() => _audioSource.Stop());
         }
+    }
+    
+    private void Start()
+    {
+        _audioSource = GetComponent<AudioSource>();
     }
 }

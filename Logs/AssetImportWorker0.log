@@ -222,3 +222,9 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 53338.322203 seconds.
+  path: Assets/Scripts/Alarm.cs
+  artifactKey: Guid(e3b34f834151237409d667b4d30cfeef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Alarm.cs using Guid(e3b34f834151237409d667b4d30cfeef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7b637b930f4bf56cf8610224cefdb1f') in 0.041977 seconds 
