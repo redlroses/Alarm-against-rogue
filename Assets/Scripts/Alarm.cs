@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(AudioSource))]
 public class Alarm : MonoBehaviour
@@ -14,20 +15,19 @@ public class Alarm : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    public void SetActiveAlarm(bool isActive)
     {
-        if (collider.gameObject.TryGetComponent(out PlayerMovement playerMovement) == false) return;
-        _sequence.Kill();
-        _audioSource.Play();
-        _audioSource.DOFade(1, _alarmRiseTime);
-    }
-
-    private void OnTriggerExit2D(Collider2D collider)
-    {
-        if (collider.gameObject.TryGetComponent(out PlayerMovement playerMovement) == false) return;
-        _sequence = DOTween.Sequence()
-            .Append(_audioSource.DOFade(0, _alarmRiseTime))
-            .AppendCallback(() => _audioSource.Stop());
-
+        if (isActive)
+        {
+            _sequence.Kill();
+            _audioSource.Play();
+            _audioSource.DOFade(1, _alarmRiseTime);
+        }
+        else
+        {
+            _sequence = DOTween.Sequence()
+                .Append(_audioSource.DOFade(0, _alarmRiseTime))
+                .AppendCallback(() => _audioSource.Stop());
+        }
     }
 }
