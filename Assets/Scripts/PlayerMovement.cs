@@ -4,27 +4,16 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _speed = 2;
-    
-    private SpriteRenderer _sprite;
-    private Animator _animator;
-    private static readonly int Speed = Animator.StringToHash("Speed");
 
-    private void Awake()
-    {
-        _sprite = GetComponent<SpriteRenderer>();
-        _animator = GetComponent<Animator>();
-    }
+    private float _velocity;
 
-    void Update()
+    public float Velocity => _velocity;
+
+    private void Update()
     {
-        float velocity = Input.GetAxis("Horizontal") * Time.deltaTime * _speed;
+        _velocity = Input.GetAxis("Horizontal") * Time.deltaTime * _speed;
         
-        Vector2 direction = new Vector2(velocity, 0);
+        Vector2 direction = new Vector2(_velocity, 0);
         transform.Translate(direction, Space.World);
-
-        _sprite.flipX = Input.GetAxis("Horizontal") < 0;
-        
-        _animator.SetFloat(Speed, Mathf.Abs(velocity));
     }
 }
-
